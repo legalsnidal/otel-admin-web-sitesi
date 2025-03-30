@@ -20,4 +20,4 @@ Admin paneli, rezervasyon sistemi, kullanıcı yönetimi gibi temel özelliklere
 
 ---
 
-Made with 💙 by [ Nidal Günsaldı]
+Made with 💙 by Nidal Günsaldı
