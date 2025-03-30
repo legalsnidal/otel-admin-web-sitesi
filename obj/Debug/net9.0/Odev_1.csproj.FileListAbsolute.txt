@@ -1,0 +1,9 @@
+C:\Users\Ndl\source\repos\Odev_1\Odev_1\obj\Debug\net9.0\Odev_1.csproj.AssemblyReference.cache
+C:\Users\Ndl\source\repos\Odev_1\Odev_1\obj\Debug\net9.0\Odev_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ndl\source\repos\Odev_1\Odev_1\obj\Debug\net9.0\Odev_1.AssemblyInfoInputs.cache
+C:\Users\Ndl\source\repos\Odev_1\Odev_1\obj\Debug\net9.0\Odev_1.AssemblyInfo.cs
+C:\Users\Ndl\source\repos\Odev_1\Odev_1\obj\Debug\net9.0\Odev_1.csproj.CoreCompileInputs.cache
+C:\Users\Ndl\source\repos\Odev_1\Odev_1\obj\Debug\net9.0\Odev_1.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Ndl\source\repos\Odev_1\Odev_1\obj\Debug\net9.0\Odev_1.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Ndl\source\repos\Odev_1\Odev_1\obj\Debug\net9.0\Odev_1.RazorAssemblyInfo.cache
+C:\Users\Ndl\source\repos\Odev_1\Odev_1\obj\Debug\net9.0\Odev_1.RazorAssemblyInfo.cs

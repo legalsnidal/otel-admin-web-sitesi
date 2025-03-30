@@ -1,0 +1,48 @@
+﻿@page
+@model Odev_1.Pages.Admin.SupportMessagesModel
+@{
+    ViewData["Title"] = "Destek Mesajları";
+}
+
+<h2>Destek Mesajları</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Kullanıcı</th>
+            <th>Mesaj</th>
+            <th>Yanıt</th>
+            <th>Durum</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var msg in Model.SupportRequests)
+        {
+            <tr>
+                <td>@msg.FullName (@msg.Email)</td>
+                <td>@msg.Message</td>
+                <td>@(msg.AdminResponse ?? "Yanıtlanmadı")</td>
+                <td>@(msg.IsResolved ? "Çözüldü" : "Bekliyor")</td>
+                <td>
+                    @if (!msg.IsResolved)
+                    {
+                        <form method="post">
+                            <input type="hidden" name="SupportRequestId" value="@msg.Id">
+                            <textarea name="AdminResponse" class="form-control mb-2" placeholder="Yanıt yaz..." required></textarea>
+                            <button type="submit" asp-page-handler="Reply" class="btn btn-primary btn-sm">Yanıtla</button>
+                        </form>
+                        <form method="post">
+                            <input type="hidden" name="SupportRequestId" value="@msg.Id">
+                            <button type="submit" asp-page-handler="Resolve" class="btn btn-success btn-sm mt-1">Sorunu Çöz</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">Çözüldü</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

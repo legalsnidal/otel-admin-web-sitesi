@@ -1,0 +1,69 @@
+﻿@page
+@model Odev_1.Pages.Account.ProfileModel
+@{
+    ViewData["Title"] = "Profilim";
+}
+
+<h2>Profilim</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<!-- Kullanıcı Bilgilerini Güncelle -->
+<form method="post" asp-page-handler="UpdateProfile">
+    <h4>Kişisel Bilgiler</h4>
+    <div class="mb-3">
+        <label class="form-label">Ad Soyad</label>
+        <input asp-for="ProfileInput.FullName" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input asp-for="ProfileInput.Email" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Bilgileri Güncelle</button>
+</form>
+
+<hr>
+
+<!-- ✅ Destek Mesajları -->
+<h4>Destek Taleplerim</h4>
+@if (Model.SupportRequests.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Mesaj</th>
+                <th>Gönderim Tarihi</th>
+                <th>Admin Yanıtı</th>
+                <th>Durum</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var msg in Model.SupportRequests)
+            {
+                <tr>
+                    <td>@msg.Message</td>
+                    <td>@msg.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@(msg.AdminResponse ?? "Yanıtlanmadı")</td>
+                    <td>@(msg.IsResolved ? "Çözüldü" : "Bekliyor")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-muted">Henüz destek mesajı göndermediniz.</p>
+}
+
+<!-- ✅ Destek Mesajı Gönder -->
+<h4>Yeni Destek Mesajı Gönder</h4>
+<form method="post" asp-page-handler="SendSupportMessage">
+    <div class="mb-3">
+        <label class="form-label">Mesajınız</label>
+        <textarea asp-for="NewSupportMessage" class="form-control" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Gönder</button>
+</form>

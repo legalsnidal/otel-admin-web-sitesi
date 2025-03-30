@@ -1,0 +1,41 @@
+﻿@page
+@model Odev_1.Pages.Admin.AddUserModel
+@{
+    ViewData["Title"] = "Yeni Üye Ekle";
+}
+
+<h2 class="text-center"><i class="fas fa-user-plus"></i> Yeni Üye Ekle</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Ad Soyad</label>
+        <input asp-for="Input.FullName" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Telefon Numarası</label>
+        <input asp-for="Input.PhoneNumber" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Ülke</label>
+        <input asp-for="Input.Country" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Doğum Tarihi</label>
+        <input asp-for="Input.BirthDate" type="date" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input asp-for="Input.Email" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Şifre</label>
+        <input asp-for="Input.Password" type="password" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-success w-100 mt-3">Üyeyi Kaydet</button>
+</form>

@@ -1,0 +1,45 @@
+﻿@page
+@model Odev_1.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Üye Ol";
+}
+
+<h2>Üye Ol</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Ad Soyad</label>
+        <input asp-for="Input.FullName" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Doğum Tarihi</label>
+        <input asp-for="Input.BirthDate" type="date" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Kimlik Numarası</label>
+        <input asp-for="Input.IdentityNumber" class="form-control" required maxlength="11" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Ülke</label>
+        <input asp-for="Input.Country" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input asp-for="Input.Email" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Şifre</label>
+        <input asp-for="Input.Password" type="password" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+</form>
+
+<!-- Başarılı Kayıt Popup -->
+@if (TempData["RegisterSuccess"] != null)
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            alert("Üyelik başarıyla tamamlandı! Giriş yapabilirsiniz.");
+        });
+    </script>
+}

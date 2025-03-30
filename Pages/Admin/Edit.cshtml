@@ -1,0 +1,20 @@
+﻿@page "{id}"
+@model Odev_1.Pages.Admin.EditModel
+@{
+    ViewData["Title"] = "Üye Düzenle";
+}
+
+<h2>Üye Düzenle</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="User.Id" />
+    <div class="mb-3">
+        <label class="form-label">Kullanıcı Adı</label>
+        <input type="text" class="form-control" asp-for="User.UserName" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" asp-for="User.Email" required />
+    </div>
+    <button type="submit" class="btn btn-success">Güncelle</button>
+</form>

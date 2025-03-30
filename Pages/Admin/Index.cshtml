@@ -1,0 +1,55 @@
+﻿@page
+@model Odev_1.Pages.Admin.IndexModel
+@{
+    ViewData["Title"] = "Admin Paneli";
+}
+
+<h2>Admin Paneli</h2>
+
+<!-- ✅ Destek Mesajları -->
+<h4>Destek Talepleri</h4>
+@if (Model.SupportMessages.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Kullanıcı</th>
+                <th>Mesaj</th>
+                <th>Gönderim Tarihi</th>
+                <th>Admin Yanıtı</th>
+                <th>Durum</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var msg in Model.SupportMessages)
+            {
+                <tr>
+                    <td>@msg.FullName</td>
+                    <td>@msg.Message</td>
+                    <td>@msg.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@(msg.AdminReply ?? "Yanıtlanmadı")</td>
+                    <td>@(msg.IsResolved ? "Çözüldü" : "Bekliyor")</td>
+                    <td>
+                        @if (!msg.IsResolved)
+                        {
+                            <form method="post" asp-page-handler="ReplySupportMessage">
+                                <input type="hidden" name="messageId" value="@msg.Id" />
+                                <textarea name="adminReply" class="form-control" required></textarea>
+                                <button type="submit" class="btn btn-success mt-2">Yanıtla</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <p class="text-success">Yanıtlandı</p>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-muted">Henüz destek mesajı yok.</p>
+}

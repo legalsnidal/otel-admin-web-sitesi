@@ -1,0 +1,28 @@
+﻿@page
+@model Odev_1.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Giriş Yap";
+}
+
+<h2>Giriş Yap</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input asp-for="Input.Email" name="Input.Email" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Şifre</label>
+        <input asp-for="Input.Password" name="Input.Password" type="password" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+</form>
+
+@if (TempData["LoginSuccess"] != null)
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            alert("Giriş başarılı! Hoş geldiniz.");
+        });
+    </script>
+}

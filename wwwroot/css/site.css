@@ -1,0 +1,15 @@
+/* Tüm sayfa arka plan rengini belirleyin */
+body {
+    background-color: #00BFFF; /* Deniz mavisi */
+}
+
+/* Arka plan olarak otel1.jpg görselini ekle */
+.hero {
+    background-image: url('/images/otel1.jpg'); /* Görselin yolu */
+    background-size: cover; /* Görselin sayfayý tamamen kaplamasýný saðlar */
+    background-position: center center; /* Görselin ortalanmasýný saðlar */
+    height: 100vh; /* Yüksekliði ekranýn tamamýný kapsar */
+    width: 100%; /* Geniþlik sayfanýn tamamýný kapsar */
+    position: relative;
+    color: white; /* Yazýnýn beyaz görünmesini saðlar */
+}

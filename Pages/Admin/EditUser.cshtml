@@ -1,0 +1,49 @@
+﻿@page
+@model Odev_1.Pages.Admin.EditUserModel
+@{
+    ViewData["Title"] = "Kullanıcı Düzenle";
+}
+
+<h2>Kullanıcı Düzenle</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<form method="post">
+    <input type="hidden" asp-for="Input.Id" />
+
+    <div class="mb-3">
+        <label class="form-label">Ad Soyad</label>
+        <input asp-for="Input.FullName" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">E-posta</label>
+        <input asp-for="Input.Email" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Telefon</label>
+        <input asp-for="Input.PhoneNumber" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Ülke</label>
+        <input asp-for="Input.Country" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Kimlik Numarası</label>
+        <input asp-for="Input.IdentityNumber" class="form-control" required maxlength="11" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Doğum Tarihi</label>
+        <input asp-for="Input.BirthDate" type="date" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+    <a class="btn btn-secondary" asp-page="/Admin/Users">İptal</a>
+</form>
