@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
 namespace Odev_1.Models
@@ -14,8 +14,9 @@ namespace Odev_1.Models
         [Required]
         public string Country { get; set; } = string.Empty;
 
+        [DataType(DataType.Date)]
         public DateTime? BirthDate { get; set; }
 
-        public bool IsAdmin { get; set; } = false;  // ✅ Admin olup olmadığını belirten özellik
+        public bool IsAdmin { get; set; } = false; // Burada default değer verdik
     }
 }
